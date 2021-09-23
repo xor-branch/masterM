@@ -122,17 +122,17 @@
 
 # # # advisor user
 
-  # avatar = "'brand/blue.png'"
-  # name = "Advisor"
-  # email = "advisor@mastermind.io"
-  # bio = "Grandir ensemble"
-  # password = "000000"
-  # User.create!(name:name,
-  #              email:email,
-  #              avatar:avatar,
-  #              bio:bio,
-  #              speciality: "Master Mind Advisor",
-  #              password:password,
-  #              password_confirmation:password,
-  #              advisor: true
-  # )
+   avatar = "'brand/blue.png'"
+   name = "Advisor"
+   email = "advisor@mastermind.io"
+   bio = "Grandir ensemble"
+   password = "000000"
+   User.create!(name:name,
+                email:email,
+                avatar:avatar,
+                bio:bio,
+                speciality: "Master Mind Advisor",
+                password:password,
+                password_confirmation:password,
+                advisor: true
+   )
