@@ -1,0 +1,15 @@
+<% @messages.each do |message| %>
+  <% if message.content.present? %>
+    <% if message.user.id == current_user.id %>
+      <div class="col pl-2 mb-2 float-right" style="max-width:51%;">
+        <p class="bg-light m-0 p-2 rounded text-default"><%= message.content %> </p>
+        <span style="font-size:.8em; "><%= message.message_time %></span>
+      </div>
+    <% else %>
+    <div class="col pl-2 mb-2 float-left" style="max-width:51%;">
+      <p class="bg-default m-0 p-2 rounded text-light"><%= message.content %> </p>
+      <span style="font-size:.8em;"><%= message.message_time %></span>
+    </div>
+  <% end %>
+  <% end %>
+<% end %>

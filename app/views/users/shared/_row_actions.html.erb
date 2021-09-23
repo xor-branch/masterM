@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="ni ni-align-left-2 text-orange"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+    <%= link_to "Edit", update_user_comment_path(id:comment,target_id:@user),class:"dropdown-item", remote: true %>
+  </div>
+</div>

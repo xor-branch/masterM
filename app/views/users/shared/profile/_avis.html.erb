@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row ml-2 align-items-center">
+
+
+      <div class="col">
+        <% if @user.video.present? %>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="<%= @user.video %>" allowfullscreen></iframe>
+        </div>
+        <% end %>
+        <h3 class=" mt-4 mb-2  text-primary">AVEZ-VOUS UNE QUESTION OU UNE SUGGESTION ?</h3>
+        <small class="text-default"> <em>Votre question ou remarque est publique. <br>
+          Si vous voulez discuter directement avec <%= @user.name %>, veuillez lui envoyer un message in box</em></small>
+      </div>
+    </div>
+  </div>
+  <div class="position-sticky card-body">
+    <div id="comments_area">
+      <%= render '/users/shared/comment', comments: @comments %>
+    </div>
+      <div class="pl-lg-4">
+
+        <div class="form-group">
+          <%= form_with model: @comment, url: user_comment_path(@user) do |form| %>
+          <label class="form-control-label">avis</label>
+          <%= form.text_area :content, class:"form-control", placeholder:"Si je vous ai deja accompagne, votre avis m'intersse pour m'encourage et me suggerer des amelioration" %>
+          <div class=" m-3 text-center">
+             <%= form.submit "Send", class: "btn btn-sm btn-primary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

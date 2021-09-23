@@ -1,0 +1,186 @@
+<div class="card bg-default shadow">
+  <div class="card-header bg-transparent border-0">
+    <h3 class="text-white mb-0">Dark table</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table align-items-center table-dark table-flush">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="sort" data-sort="name">Project</th>
+          <th scope="col" class="sort" data-sort="budget">Budget</th>
+          <th scope="col" class="sort" data-sort="status">Status</th>
+          <th scope="col">Users</th>
+          <th scope="col" class="sort" data-sort="completion">Completion</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <%= image_tag "theme/bootstrap.jpg", alt: "..." %>
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">Argon Design System</span>
+              </div>
+            </div>
+          </th>
+          <td class="budget">
+            $2500 USD
+          </td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-warning"></i>
+              <span class="status">pending</span>
+            </span>
+          </td>
+          <td>
+            <%= render 'components/tables/avatar_group' %>
+          </td>
+          <td>
+            <%= render partial: 'components/tables/progress_bar', locals: {
+              percent: 60,
+              bg_class: 'bg-warning'
+            } %>
+          </td>
+          <td class="text-right">
+            <%= render 'components/tables/row_actions' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <%= image_tag "theme/angular.jpg", alt: "..." %>
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">Angular Now UI Kit PRO</span>
+              </div>
+            </div>
+          </th>
+          <td class="budget">
+            $1800 USD
+          </td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-success"></i>
+              <span class="status">completed</span>
+            </span>
+          </td>
+          <td>
+            <%= render 'components/tables/avatar_group' %>
+          </td>
+          <td>
+            <%= render partial: 'components/tables/progress_bar', locals: {
+              percent: 100,
+              bg_class: 'bg-success'
+            } %>
+          </td>
+          <td class="text-right">
+            <%= render 'components/tables/row_actions' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <%= image_tag "theme/sketch.jpg", alt: "..." %>
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">Black Dashboard</span>
+              </div>
+            </div>
+          </th>
+          <td class="budget">
+            $3150 USD
+          </td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-danger"></i>
+              <span class="status">delayed</span>
+            </span>
+          </td>
+          <td>
+            <%= render 'components/tables/avatar_group' %>
+          </td>
+          <td>
+            <%= render partial: 'components/tables/progress_bar', locals: {
+              percent: 72,
+              bg_class: 'bg-danger'
+            } %>
+          </td>
+          <td class="text-right">
+            <%= render 'components/tables/row_actions' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <%= image_tag "theme/react.jpg", alt: "..." %>
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">React Material Dashboard</span>
+              </div>
+            </div>
+          </th>
+          <td class="budget">
+            $4400 USD
+          </td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-info"></i>
+              <span class="status">on schedule</span>
+            </span>
+          </td>
+          <td>
+            <%= render 'components/tables/avatar_group' %>
+          </td>
+          <td>
+            <%= render partial: 'components/tables/progress_bar', locals: {
+              percent: 90,
+              bg_class: 'bg-info'
+            } %>
+          </td>
+          <td class="text-right">
+            <%= render 'components/tables/row_actions' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <%= image_tag "theme/vue.jpg", alt: "..." %>
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">Vue Paper UI Kit PRO</span>
+              </div>
+            </div>
+          </th>
+          <td class="budget">
+            $2200 USD
+          </td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-success"></i>
+              <span class="status">completed</span>
+            </span>
+          </td>
+          <td>
+            <%= render 'components/tables/avatar_group' %>
+          </td>
+          <td>
+            <%= render partial: 'components/tables/progress_bar', locals: {
+              percent: 100,
+              bg_class: 'bg-success'
+            } %>
+          </td>
+          <td class="text-right">
+            <%= render 'components/tables/row_actions' %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

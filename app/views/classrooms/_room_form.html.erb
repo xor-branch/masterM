@@ -1,0 +1,20 @@
+<%= form_with(model:room, url:create_room_path, remote: true, id:"send_room", class:"inline-form") do |f| %>
+    <% if flash['alert'] %>
+      <div id="error_explanation"><p><%= flash['alert'] %></p></div>
+    <% end %>
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="form-group">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-send"></i></span>
+            </div>
+            <%= f.text_field :body, class: "form-control", id:"room", placeholder: "votre message", row:8, col:8 %>
+        </div>
+      </div>
+      </div>
+      <div class="col-lg-3">
+          <button type="submit" class="btn btn-sm btn-default"><i class="ni ni-spaceship"></i> send</button>
+        </div>
+    </div>
+<% end %>

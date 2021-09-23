@@ -1,0 +1,53 @@
+$default:       #1f2c3d !default;
+$primary:       #6E3678 !default;
+$secondary:     #f7fafc !default;
+
+.simple-calendar {
+  .day {}
+  .day:hover {
+    background-color: #F1F1E6;
+  }
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today .day_tag {
+    color: red;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    color: $primary;
+    background-color: orange;
+  }
+  .has-events:hover {
+    background-color:orange !important;
+  }
+};
+
+.room-list::-webkit-scrollbar {
+  display: none;
+}
+
+.room-list {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+#courses::-webkit-scrollbar {
+  display: none;
+}
+#courses {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

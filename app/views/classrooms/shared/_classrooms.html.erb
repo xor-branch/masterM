@@ -1,0 +1,32 @@
+  <div class="card card-profile ">
+    <%= image_tag "#{classroom.cover}", class: "card-img-top img-fluid", style:"max-height:180px;", alt: "Image placeholder" %>
+    <div class="card-header text-center border-0 pt-2 pt-md-4 pb-0 pb-md-4">
+      <h4><%= classroom.title %> - <span class="bg-salmon"><%=classroom.category %></span></h4>
+      <div class="d-flex justify-content-between">
+        <a href="<%=classroom_path(classroom) %>" class="btn btn-sm btn-primary mr-4 ">Courses</a>
+        <a href="#" class="btn btn-sm btn-warning float-right">Subcribe</a>
+      </div>
+    </div>
+    <div class="card-body pt-0">
+      <div class="row">
+        <div class="col">
+          <div class="card-profile-stats d-flex justify-content-center">
+            <div>
+              <span class="heading"><%=classroom.courses.count %></span>
+              <span class="description">Courses</span>
+
+            </div>
+            <div>
+              <span class="heading">10</span>
+              <span class="description">Studants</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="p">
+             <%=link_to classroom.description.truncate(200), classroom %>
+        </p>
+      </div>
+      </div>
+  </div>

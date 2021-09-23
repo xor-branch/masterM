@@ -1,0 +1,35 @@
+<div id="calendar" class="simple-calendar">
+  <div class="card-header border-0 calendar-heading">
+    <h3 class="mb-0">
+      <%#= t('date.abbr_month_names')[start_date.month] %> <%#= start_date.year %>
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    </h3>
+  </div>
+      <table class=" table-bordered align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <% date_range.slice(0, 7).each do |day| %>
+              <th scope="col" class="sort" data-sort="name"><%= t('date.abbr_day_names')[day.wday] %></th>
+            <% end %>
+          </tr>
+        </thead>
+
+        <tbody class="list">
+          <% date_range.each_slice(7) do |week| %>
+            <tr>
+              <% week.each do |day| %>
+                <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                  <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                    <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                  <% else %>
+                    <% passed_block.call day, sorted_events.fetch(day, []) %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+</div>

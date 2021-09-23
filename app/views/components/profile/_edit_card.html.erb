@@ -1,0 +1,66 @@
+<%= form_for(@user, url: user_path(@user)) do |f| %>
+  <div class="card">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <div class="col-8">
+          <h3 class="mb-0"><%= @user.name %> profile (<%= @user.category %>)</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <h6 class="heading-small text-muted mb-4">Account information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-username">Username</label>
+                 <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-email">Email address</label>
+                <%= f.email_field :email, class: "form-control", type: "email", placeholder: "Email", autofocus: true, autocomplete: "email" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-address">Avatar</label>
+                <%= f.file_field :avatar, class: "form-control", placeholder: "Your avatar" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Description -->
+        <h6 class="heading-small text-muted mb-4">About you</h6>
+        <div class="pl-lg-4">
+          <div class="form-group">
+            <label class="form-control-label">Your bio</label>
+              <%= f.text_area :bio, class: "form-control", rows:"4", placeholder: "Parlez-nous un peu de vous, une citationqui vous decrit le mieux par exemple" %>
+          </div>
+        </div>
+        <% if current_user.mentor? || current_user.advisor %>
+          <h6 class="heading-small text-muted mb-4">Your Presentation video</h6>
+          <% if @user.video.present? %>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="<%= @user.video %>" allowfullscreen></iframe>
+            </div>
+          <% end %>
+          <div class="pl-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">Video</label>
+                <%= f.text_field :video, class: "form-control", rows:"4" %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="col-lg text-right">
+          <%= f.submit "update Account", class: "btn btn-sm btn-primary"%>
+        </div>
+    </div>
+  </div>
+<% end %>

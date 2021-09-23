@@ -1,0 +1,9 @@
+
+  <% if course.video.present? %>
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="<%= course.video %>" allowfullscreen></iframe>
+  </div>
+  <% end %>
+<div class="container mt-4">
+  <%= course.content %>
+</div>

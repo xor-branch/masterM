@@ -1,0 +1,76 @@
+<%= form_with model: @project, local: true do |f| %>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <%= render partial: 'shared/alerts/errors', locals: { resource: @project } %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h3><%= heading %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h4>Name</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.text_field :name, class: "form-control", value: @project.name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>Project Start</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.date_field :start, class: "form-control"%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>Project deadline</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.date_field :deadline, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>Statut</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-6 col-lg-3">
+              <%= f.select(:statut,
+                              options_for_select(statuts_for_select, @project.statut),
+                              {}, class: 'custom-select') %>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col">
+              <%= f.rich_text_area :description%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <a class="btn btn-secondary" href="<%= projects_path %>">Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'shared/head' %>
+  <body class="bg-default">
+    <%= render 'components/logged_out/topnav' %>
+    <div class="main-content">
+      <%= render partial: 'authentication/header', locals: { title: yield(:title), subtitle: yield(:subtitle) } %>
+      <%= yield %>
+    </div>
+    <%= render 'components/logged_out/footer' %>
+  </body>
+</html>

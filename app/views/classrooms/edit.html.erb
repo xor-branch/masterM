@@ -1,0 +1,82 @@
+<%= form_with model: @classroom, local: true do |f| %>
+<% if flash['alert'] %>
+  <div id="error_explanation"><p><%= flash['alert'] %></p></div>
+<% end %>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <%= render partial: 'shared/alerts/errors', locals: { resource: @classroom } %>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h4>Classroom cover</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.text_field :cover, class: "form-control", placeholder: "une couverture" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>Classroom title</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.text_field :title, class: "form-control", placeholder: "un titre de la classe" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>Classroom description</h4>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-9">
+              <%= f.text_area :description, class: "form-control", placeholder: "Une description de la classe", rows:"5", cols:"80" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+            </div>
+          </div>
+              <%= f.fields_for :courses do |course| %>
+              <h4>
+                Courses
+                <%= course.index + 1 %>
+              </h4>
+              <div class="row mb-4">
+                <div class="col-12 col-lg-9">
+                  <%= course.text_field :title, class: "form-control", placeholder: "un titre du cours" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-12 col-lg-9">
+                  <%= course.text_field :video, class: "form-control", placeholder: "une video du cours" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-12 col-lg-9">
+                  <%= course.text_area :content, class: "form-control", placeholder: "Une description du cours", rows:"5", cols:"80" %>
+                </div>
+              </div>
+            <% end %>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Update</button>
+              <a class="btn btn-secondary" href="<%= classrooms_path %>">Back to classrooms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

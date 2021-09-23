@@ -1,0 +1,10 @@
+<% @classroom.rooms.each do |room| %>
+    <div class="comment-content m-2" id ="this_comment_<%= room.id %>">
+    <%#= image_tag(room.user.avatar_thumbnail, style:"width:20px;", class:" circle img-fluid shadow", alt:"circle image") %>
+    <p class="rounded bg-secondary text-primary p-2" style="font-size:13px">
+      <small> <%= room.user.name %> </small><br>
+      <%= room.body %>
+    </p>
+
+    </div>
+<% end %>

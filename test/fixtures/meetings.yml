@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  day: 2021-09-14
+  start_at: 2021-09-14 21:57:51
+  end_at: 2021-09-14 21:57:51
+  owner: 
+  guest: 1
+
+two:
+  title: MyString
+  day: 2021-09-14
+  start_at: 2021-09-14 21:57:51
+  end_at: 2021-09-14 21:57:51
+  owner: 
+  guest: 1

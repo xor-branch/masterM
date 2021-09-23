@@ -1,0 +1,15 @@
+<div class="section section-lg section-nucleo-icons pb-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3">TOUS LES UTILSATEURS</h2>
+        <p class="lead">
+           Apprendre la programation logiciel ou web avec un mentor..
+        </p>
+      </div>
+    </div>
+  </div>
+  <% @users.each do |user| %>
+    <%= render "index", user: user %>
+  <% end %>
+</div>

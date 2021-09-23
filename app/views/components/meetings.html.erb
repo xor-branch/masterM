@@ -1,0 +1,39 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'My meetings'
+      } %>
+    </div>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg">
+          <%= month_calendar(events: @meetings) do |date, meetings| %>
+            <p class="day_tag"><%= date.to_formatted_s(:short) %></p>
+            <% meetings.each do |meeting| %>
+            <div>
+              <p class="name mb-0 "><%= meeting.title %></p>
+              <p class="name mb-0 text-sm text-default">
+                <span>
+                  <i class="ni ni-circle-08 text-primary"></i></span>
+                  <span> Avec 
+                    <% if current_user.id == meeting.guest %>
+                      <%=link_to meeting.user.name, user_path(User.find(meeting.user_id).id) %>
+                    <% else %>
+                      <%= link_to User.find(meeting.guest).name, user_path(User.find(meeting.guest).id) %>
+                    <% end %>
+                 </span>
+              </p>
+              <p class="name mb-0 text-sm"><i class="ni ni-watch-time text-primary"></i> <%= meeting.start_at.to_time.strftime('%l:%M ') %> to <%= meeting.end_at.to_time.strftime('%l:%M ') %></p>
+            </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+   </div>
+</section>

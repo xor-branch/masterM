@@ -1,0 +1,7 @@
+<%= form_with model: @comment, url: edit_user_comment_path(id:@comment, target_id:@target_id) do |form| %>
+  <label class="form-control-label">avis</label>
+  <%= form.text_area :content, class:"form-control", placeholder:"Si je vous ai deja accompagne, votre avis m'intersse pour m'encourage et me suggerer des amelioration" %>
+  <div class=" m-3 text-center">
+  <%= form.submit "Send", class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>

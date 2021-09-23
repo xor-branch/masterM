@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header border-0">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="mb-0">Projects page</h3>
+      </div>
+      <div class="col text-right">
+        <a href="#!" class="btn btn-sm btn-primary">See all</a>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <!-- Projects table -->
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Project name</th>
+          <th scope="col">Statut</th>
+          <th scope="col">Start</th>
+          <th scope="col">Deadline</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+        <tr>
+          <th scope="row">
+            <%= project.name %>
+          </th>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="<%=  status_icon_class(project.statut) %>"></i>
+              <span class="status"><%= render_statut(project.statut) %></span>
+            </span>
+          </td>
+          <td>
+            <span class="bug-date">
+              <%= render_date (project.start) %>
+            </span>
+          </td>
+          <td>
+            <span class="bug-date">
+            <%= render_date (project.deadline) %>
+            </span>
+          </td>
+          <td>
+            <a href="/projects/<%= project.id %>" class="btn btn-sm btn-primary">Details</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

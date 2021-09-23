@@ -1,0 +1,25 @@
+<div class="fixed-right card">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 order-lg-2">
+      <div class=" text-center card-profile-image">
+        <h3>CHAT ROOM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card-body mt-1 pt-0">
+    <div class="row">
+      <div class="section py-0">
+        <div class="col">
+              <div id="room_area" class=" room-list mb-1" style="max-height:450px; overflow:scroll;">
+                <% if @classroom.rooms.any? %>
+                  <%= render "classrooms/shared/rooms" %>
+                <% end %>
+              </div>
+              <div class="">
+                <%= render "room_form", room:@room %>
+              </div>
+      </div>
+      </div>
+  </div>
+</div>
+</div>

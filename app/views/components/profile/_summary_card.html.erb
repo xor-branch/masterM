@@ -1,0 +1,54 @@
+<div class="card card-profile">
+  <%= image_tag "theme/img-1-1000x600.jpg", class: "card-img-top", alt: "Image placeholder" %>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 order-lg-2">
+      <div class="card-profile-image">
+        <a href="#">
+          <%= image_tag(current_user.avatar_thumbnail, class: 'rounded-circle') %>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+    <div class="d-flex justify-content-between">
+      <a href="<%= components_meetings_path %>" class="btn btn-sm btn-primary mr-4 ">Schedule</a>
+      <a href="<%= components_conversations_path %>" class="btn btn-sm btn-default float-right">Chat box</a>
+    </div>
+  </div>
+  <div class="card-body pt-0">
+    <div class="row">
+      <div class="col">
+        <div class="card-profile-stats d-flex justify-content-center">
+          <div>
+            <span class="heading">15</span>
+            <span class="description">Friends</span>
+          </div>
+          <div>
+            <span class="heading">10</span>
+            <span class="description">Coming soon meetings </span>
+          </div>
+          <div>
+            <span class="heading">89</span>
+            <span class="description">Classrooms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <h5 class="h3">
+        <%= current_user.name %>
+      </h5>
+      <div class="h5 font-weight-300">
+        <%= current_user.email %>
+      </div>
+      <% if current_user.mentor? %>
+      <div class="justify-content-between">
+        <button type="button" name="button" class="btn btn-sm btn-info mr-4" > Mentor </button>
+      </div>
+      <% end %>
+      <div class="h5 mt-4">
+        <i class="ni business_briefcase-24 mr-2"></i>"<%= current_user.bio %>"
+      </div>
+    </div>
+  </div>
+</div>

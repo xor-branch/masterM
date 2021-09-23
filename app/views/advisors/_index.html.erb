@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card">
+      <div class="card-body p-3">
+        <div class="row">
+          <div class="col-7">
+            <div class="d-flex flex-column">
+              <h4 class=" mb-2 pt-2 font-weight-bolder"><%= user.name %></h4>
+              <p class="mb-2 pt-1 text-bold">6 Publications</p>
+              <p class="mb-2 text-primary">
+                <%= user.email %>
+              </p>
+              <p class="mb-2 text-primary">
+                <%= user.bio %>
+              </p>
+              <div class="mt-4">
+                <button type="button" class="btn btn-primary"><%= link_to 'Rendez-vous', "components/meeting/#{user.id}", class:"text-white" %></button>
+                <button type="button" class="btn btn-success"><%= link_to 'Message', conversations_path(recipient_id: user.id), method: :post, class:"text-white" %></button>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-5 ms-auto text-center mt-2 mt-lg-0">
+            <div class="border-radius-lg ">
+              <a href="/users/<%= user.id %>">
+                <%= image_tag(user.avatar_thumbnail, style:"width: 180px;", class:"img-fluid rounded shadow", alt:"Rounded image") %>
+              </a>
+            </div>
+            <button type="button" class=" mt-2 btn btn-sm btn-info"><%= link_to "Edit user", edit_advisors_user_path(user.id), class:"text-white" %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

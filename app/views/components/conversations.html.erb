@@ -1,0 +1,139 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'Chat box'
+      } %>
+    </div>
+  </div>
+</div>
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <h3 class="mb-0 text-center">Messages lists</h3>
+          </div>
+          <!-- Light table -->
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort" data-sort="name"><%= @conversations.count %> messages</th>
+                </tr>
+              </thead>
+              <tbody class="list">
+                <% @conversations.each do |conversation| %>
+                <tr>
+                  <td scope="row">
+                    <div class="media align-items-center">
+                      <a href="#" class="avatar rounded-circle mr-3">
+                        <%= image_tag(conversation.other_than(current_user).avatar_thumbnail, class: 'rounded-circle') %>
+                      </a>
+                      <div class="media-body">
+                        <p class="name mb-0 text-sm text-primary">
+                          <strong>
+                            <%# if convers.recipient.id == current_user.id %>
+                              <%=link_to conversation.other_than(current_user).name, components_conversations_path(id: conversation.id) %>
+                            <%# else %>
+                              <%#=link_to convers.recipient.name, components_conversations_path(id: convers.id) %>
+                            <%# end %>
+                          </strong>
+                        </p>
+                        <% if conversation.messages.present? %>
+                        <p class="name mb-0 text-sm"><%= conversation.messages.last.content.truncate(25) %></p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="container">
+          <% if @messages != nil %>
+            <div class="card card-profile shadow ">
+              <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="/users/<%= @conversation.other_than(current_user).id %>">
+                    <%= image_tag(@conversation.other_than(current_user).avatar_thumbnail, class: 'rounded-circle')%>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+                  <button type="button" class="btn btn-sm btn-info mr-4"><%= link_to 'Rendez-vous', "/components/meeting/#{@conversation.other_than(current_user).id}", class:"text-white" %></button>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+                    <span class="heading">22</span>
+                    <span class="description">Etudiant</span>
+                  </div>
+                  <div>
+                    <span class="heading">10</span>
+                    <span class="description">Articles</span>
+                  </div>
+                  <div>
+                    <span class="heading">89</span>
+                    <span class="description">Avis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3>
+                <a href="/users/<%= @conversation.other_than(current_user).id %>">
+                  <%=@conversation.other_than(current_user).name %><span class="font-weight-light">, 27</span>
+                </a>
+              </h3>
+              <div><i class="ni education_hat mr-2"></i><%=@conversation.other_than(current_user).speciality %></div>
+              <% if @conversation.other_than(current_user).mentor? %>
+              <div class="">
+                <button type="button" name="button" class="btn btn-sm btn-success"> Mentor </button>
+              </div>
+              <% end %>
+            </div>
+            <div class="mt-5 py-5 border-top">
+              <div class="row mb-4" style="max-height:350px; overflow:auto;">
+                <div class="col py-2">
+                    <div id="list_messages">
+                      <%= render "messages/list_messages" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <%= form_with model: [@conversation, @message], url: "/create_conversation/#{@conversation.id}" do |f| %>
+                      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+                    </div>
+                    <div class="row">
+                      <div class="field col-10">
+                       <%= f.text_area :content, class: "form-control" %>
+                       </div>
+                     <%= f.submit("Send", class:"btn btn-primary col-2") %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="col py-2">
+                    <p>Vous n'avez pas encore de messages ... </p>
+                  </div>
+                <% end %>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+   </div>
+</section>

@@ -1,0 +1,65 @@
+<nav class="row position-sticky position-relative top-6 shadow mt-2" style="z-index:1000;">
+  <div class="container-fluid ">
+    <div class=" blur shadow-blur overflow-hidden ">
+        <div class="col-lg-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2 ">
+          <div class="nav-wrapper end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+              <li class="nav-item">
+                <%= link_to "Digital", components_classrooms_path(category: "digital"), class:"nav-link mb-1 px-0 py-1 mx-1 text-orange" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Business", components_classrooms_path(category: "business"), class:"nav-link mb-1 px-0 py-1 mx-1 text-primary" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Arts", components_classrooms_path(category: "arts"), class:"nav-link mb-1 px-0 py-1 mx-1 text-success" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Artisanat", components_classrooms_path(category: "artisanat"), class:"nav-link mb-1 px-0 py-1 mx-1 text-salmon" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "language", components_classrooms_path(category: "language"), class:"nav-link mb-1 px-0 py-1 mx-1 text-danger" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "soft_skill", components_classrooms_path(category: "soft_skil"), class:"nav-link mb-1 px-0 py-1 mx-1" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</nav>
+<div class="row justify-content-center p-4">
+  <div class="col-xl-6 col-lg-6 col-md-8 px-5">
+    <h1 class="text-orange">Master Mind
+    <p class="text-lead text-primary"> Profitez du premier reseau de mentoring pour realisez vos rêves !</p>
+  </div>
+</div>
+      <div class="row d-flex justify-content-center mx-4">
+          <% @classrooms.each do |classroom| %>
+            <div class="col-lg-4 col-md-6">
+              <%= render "classrooms/shared/classrooms", classroom: classroom %>
+          </div>
+          <% end %>
+
+      </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#&amp;page=1">1</a></li>
+        <li class="page-item"><a class="page-link" href="#&amp;page=2">2</a></li>
+        <li class="page-item"><a class="page-link" href="#&amp;page=3">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">
+            <i class="fa fa-angle-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>
+<!--mentor card -->

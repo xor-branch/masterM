@@ -1,0 +1,30 @@
+
+<div class="container">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-7">
+              <div class="d-flex flex-column">
+                <h4 class=" mb-2 pt-2 font-weight-bolder"><%= mentor.speciality %></h4>
+                <p class="mb-2 pt-1 text-bold">6 Publications</p>
+                <p class="mb-2 text-primary">
+                  <%= mentor.bio %>
+                </p>
+              </div>
+              <div class="mt-4">
+                <button type="button" class="btn btn-sm btn-primary"><%= link_to 'Rendez-vous', "components/meeting/#{mentor.id}", class:"text-white" %></button>
+                <button type="button" class="btn btn-sm btn-success"><%= link_to 'Message', conversations_path(recipient_id: mentor.id), method: :post, class:"text-white" %></button>
+              </div>
+            </div>
+            <div class="col-5 ms-auto text-center mt-2 mt-lg-0">
+              <div class="border-radius-lg ">
+                <a href="users/<%= mentor.id %>">
+                  <%= image_tag(mentor.avatar_thumbnail, style:"width: 180px;", class:"img-fluid rounded shadow", alt:"Rounded image") %>
+                  <small class="d-block text-uppercase font-weight-bold mb-4"><%= mentor.name %></small>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

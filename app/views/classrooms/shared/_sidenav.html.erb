@@ -1,0 +1,56 @@
+<nav class="sidenav navbar navbar-vertical mt-6 p-2 fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  <div class="scrollbar-inner">
+    <div class="navbar-inner">
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Nav items -->
+        <ul class="navbar-nav">
+          <% @courses.each do |course|%>
+          <li class="nav-item">
+              <i class="ni ni-key-25 text-primary"></i>
+              <span class="nav-link-text"><%= link_to course.title, "/classrooms/#{@classroom.id}/courses?classe=#{course.id}", class:"text-default",remote:true %></span>
+          </li>
+          <br>
+          <% end %>
+        </ul>
+        <hr>
+        <h6>Mentor: <%=link_to @classroom.user.name, user_path(@classroom.user.id) %></h6>
+        <ul class="navbar-nav mb-md-3">
+          <li class="nav-item">
+            <i class="ni ni-chat-round"> </i>
+              <%= link_to "Ecrire au mentore",conversations_path(recipient_id: @classroom.user.id), method: :post ,class:"nav-link-text" %>
+          </li>
+          <li class="nav-item">
+              <a class="dropdown-item" href="#">
+                <i class="ni ni-caps-small"></i>
+                <span class="nav-link-text">Poser une question</span>
+              </a>
+          </li>
+        </ul>
+        <hr>
+        <ul class="navbar-nav mb-md-3">
+          <li class="nav-item">
+            <% if user_signed_in? %>
+              <% if current_user.mentor? %>
+                  <a class="dropdown-item" href="<%= classrooms_path %>">
+                    <i class="ni ni-button-power"></i>
+                    <span class="nav-link-text">Back to classrooms </span>
+                  </a>
+              <% else %>
+                  <a class="dropdown-item" href="<%= components_classrooms_path %>">
+                    <i class="ni ni-button-power"></i>
+                    <span class="nav-link-text">Back to classrooms </span>
+                  </a>
+              <% end %>
+            <% else %>
+              <a class="dropdown-item" href="<%= components_classrooms_path %>">
+                <i class="ni ni-button-power"></i>
+                <span class="nav-link-text">Back to classrooms </span>
+              </a>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

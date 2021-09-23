@@ -1,0 +1,27 @@
+<% @comments.each do |comment| %>
+<% if comment.id.present? %>
+    <div class="row">
+      <div class="col-8">
+        <div class="d-flex flex-column">
+          <div class="mb-1 text-primary">
+            <div class="comment-content" id ="this_comment_<%= comment.id %>">
+            <% if user_signed_in? && comment.user.id == current_user.id %>
+            <span><%= render 'users/shared/row_actions', comment: comment %></span>
+            <% end %>
+              <%= comment.content %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <div class="border-radius-lg ">
+          <a href="/users/<%= comment.user.id %>">
+            <%= image_tag(comment.user.avatar_thumbnail, style:"width:50px;", class:"img-fluid shadow", alt:"Rounded image") %>
+            <small class="d-block text-uppercase font-weight-bold"><%= comment.user.name %></small>
+          </a>
+        </div>
+      </div>
+    </div>
+<% end %>
+<hr>
+<% end %>

@@ -1,0 +1,3 @@
+$("#comments_area").html("<%= j(render '/users/shared/comment') %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");

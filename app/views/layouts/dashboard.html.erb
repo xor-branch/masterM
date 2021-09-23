@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'shared/head' %>
+  <body>
+    <%= render 'components/sidenav' %>
+    <div class="main-content" id="panel">
+      <%= render partial: 'components/topnav', locals: { bg_color_class: yield(:topnav_bg) } %>
+      <%= yield %>      
+    </div>
+  </body>
+</html>

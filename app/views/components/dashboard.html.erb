@@ -1,0 +1,32 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'Summary'
+      } %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--4">
+  <div class="row">
+    <div class="col-xl-12">
+      <%= render 'components/dashboard/metrics_summary' %>
+    </div>
+    <div class="main-content" id="panel">
+      <%#= render 'components/profile/header' %>
+      <!-- Page content -->
+      <div class="container-fluid mt-3">
+          <div class="row">
+            <div class="col-xl-4 order-xl-2">
+              <%= render 'components/profile/summary_card' %>
+            </div>
+            <div class="col-xl-8 order-xl-1">
+              <%= render 'components/profile/edit_card' %>
+            </div>
+          </div>
+        <%= render 'components/footer' %>
+      </div>
+  </div>
+</div>

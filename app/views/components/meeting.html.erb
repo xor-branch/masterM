@@ -1,0 +1,107 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'Schedule meeting'
+      } %>
+    </div>
+  </div>
+</div>
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+          <%= month_calendar(events: @meetings) do |date, meetings| %>
+            <p class="day_tag"><%= date.to_formatted_s(:short) %></p>
+            <% meetings.each do |meeting| %>
+            <div>
+              <p class="name mb-0 "><%= meeting.title %></p>
+              <p class="name mb-0 text-sm text-default"> <span><i class="ni ni-circle-08 text-primary"></i> </span><%= User.find(meeting.guest).name%></p>
+              <p class="name mb-0 text-sm"><i class="ni ni-watch-time text-primary"></i> <%= meeting.start_at.to_time.strftime('%l:%M ') %> to <%= meeting.end_at.to_time.strftime('%l:%M ') %></p>
+            </div>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="col-lg-5">
+            <div class="card card-profile shadow ">
+              <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="/users/<%= @guest.id %>">
+                    <%= image_tag(@guest.avatar_thumbnail, class: 'rounded-circle')%>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+                  <a href="#" class="btn btn-sm btn-info mr-4">MENTOR</a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+                    <span class="heading">10</span>
+                    <span class="description">Articles</span>
+                  </div>
+                  <div>
+                    <span class="heading">89</span>
+                    <span class="description">Avis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3>
+                <a href="/users/<%= @guest.id %>">
+                  <%=@guest.name %><span class="font-weight-light">, 27</span>
+                </a>
+              </h3>
+              <div><i class="ni education_hat mr-2"></i><%=@guest.speciality %></div>
+            </div>
+            <div class="mt-5 py-5 border-top">
+              <div class="row mb-4" style="max-height:350px; overflow:auto;">
+                <div class="col py-2">
+                  <%= form_with model: @meeting, url:"/meeting/#{@guest.id}", local: true do |f| %>
+                    <div class="form-group mb-3">
+                      <div class="input-group input-group-merge input-group-alternative">
+                        <%= f.text_field :title, class: "form-control", type: "date_field", placeholder: "Title for meeting", autofocus: true, autocomplete: "email" %>
+                      </div>
+                    </div>
+                      <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                        </div>
+                        <%= f.date_select :day, class: "form-control", type: "date_field", placeholder: "Date", autofocus: true, autocomplete: "email" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <%= f.time_select :start_at, :ignore_date => true, class: "form-control", type: "time", placeholder: "start_at", autocomplete: "new-password" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <%= f.time_select :end_at, :ignore_date => true, class: "form-control", type: "time", placeholder: "start_at", autocomplete: "new-password" %>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-info">Reserver</button>
+                    </div>
+                  <% end %>
+              </div>
+              </div>
+            </div>
+      </div>
+    </div>
+   </div>
+</section>

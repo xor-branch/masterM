@@ -1,0 +1,20 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'Default'
+      } %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div id="calendar"></div>
+    <div class="col-xl-12">
+      <%= render 'components/dashboard/projects/project_view', locals: { projects: @projects } %>
+    </div>
+  </div>
+  <%= render 'components/footer' %>
+</div>

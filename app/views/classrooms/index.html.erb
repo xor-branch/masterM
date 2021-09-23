@@ -1,0 +1,28 @@
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <%= render partial: 'components/header', locals: {
+            icon: 'home',
+            breadcrumb_1: 'Dashboards',
+            breadcrumb_2: 'My classrooms'
+      } %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="main-content" id="panel">
+      <%#= render 'components/profile/header' %>
+      <!-- Page content -->
+      <div class="container-fluid mt-3">
+          <div class="row">
+            <div class="col-xl-12">
+              <div  id="classroom_list" class="row">
+                  <%= render 'index' %>
+              </div>
+            </div>
+          </div>
+        <%= render 'components/footer' %>
+      </div>
+  </div>
+</div>
