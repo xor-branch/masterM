@@ -51,3 +51,7 @@ $secondary:     #f7fafc !default;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.modal {
+  z-index: 1000000 !important ;
+}

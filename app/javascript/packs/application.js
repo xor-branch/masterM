@@ -4,6 +4,10 @@
 // that code so it'll be compiled.
 import 'bootstrap'
 import 'trix/dist/trix.css';
+
+import "trix"
+import "@rails/actiontext"
+
 require("jquery/dist/jquery.js")
 require("@rails/ujs").start()
 require("turbolinks").start()

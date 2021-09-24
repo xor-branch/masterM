@@ -58,4 +58,7 @@ Rails.application.routes.draw do
   post "classrooms/:id/room", to:"rooms#create", as: :create_room
 
   mount ActionCable.server => '/cable'
+
+  #bugs routes
+  resources :bugs
 end

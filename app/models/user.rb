@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :classrooms, dependent: :destroy
   has_many :rooms, dependent: :destroy
+  has_many :bugs, dependent: :destroy
+  
   enum category: %i[default digital business arts artisanat soft_skil language]
   mount_uploader :avatar, AvatarUploader
 

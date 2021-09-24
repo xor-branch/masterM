@@ -1,0 +1,54 @@
+<div class="col-md-4">
+  <div class="modal fade" id="bug-form" tabindex="-1" role="dialog" aria-labelledby="bug-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card bg-secondary shadow border-0 mb-0">
+            <div class="card-header bg-default pb-3">
+              <div class="text-white text-center mb-1">
+                <h4 class="text-white">REPORT BUGS</h4>
+                <small>Merci de nous reporter une erreur que vous auriez remarquer su l'application.
+                Cela nous aidera a faire avancer le site</small>
+              </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-3">
+              <div class="text-center text-primary mb-2">
+                <small>Bug details</small>
+              </div>
+            <%= form_with model: @bug, local: true do |f| %>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-bag-17"></i></span>
+                    </div>
+                    <%= f.text_field :title, class: "form-control",  placeholder:"Bugs title" %>
+                  </div>
+                </div>
+                <% if current_user.advisor? %>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-check-bold"></i></span>
+                    </div>
+                    <%= f.select(:statut,
+                                    options_for_select(statuts_for_select, @bug.statut),
+                                    {}, class: 'custom-select',placeholder:"statut" ) %>
+                  </div>
+                </div>
+                <% end %>
+                <div class="form-group">
+
+                    <%= f.rich_text_area :body, placeholder:"bug content" %>
+
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-default my-4">Push</button>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
