@@ -87,19 +87,19 @@
             </div>
           </div>
         </li>
-
         <li class="nav-item dropdown">
-            <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text"><%= link_to "Master Classes", components_classrooms_path, class:"nav-link" %></span>
+            <span class="nav-link-inner--text">
+              <%= link_to "Master Classes", components_classrooms_path, class:"nav-link" %>
+            </span>
         </li>
         <% if user_signed_in? %>
-          <% unless current_user.mentor? || current_user.advisor? %>
-          <li class="nav-item dropdown">
-              <span class="nav-link-inner--text">
-                <%= link_to ' Devenir mentor', conversations_path(recipient_id: User.advisor.id), method: :post, class:"nav-link" %>
-              </span>
-          </li>
-          <% end %>
+            <% unless !current_user.mentor? || !current_user.advisor? %>
+            <li class="nav-item dropdown">
+                <span class="nav-link-inner--text">
+                  <%= link_to ' Devenir mentor', conversations_path(recipient_id: User.advisor.id), method: :post, class:"nav-link" %>
+                </span>
+            </li>
+            <% end %>
           <% else %>
           <li class="nav-item dropdown">
               <span class="nav-link-inner--text">
