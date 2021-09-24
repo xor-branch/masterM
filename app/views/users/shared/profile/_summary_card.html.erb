@@ -41,12 +41,14 @@
       <div class="h5 font-weight-300">
         <%= @user.email %>
       </div>
+      <% if current_user.mentor? %>
       <div class="">
         <button type="button" name="button" class="btn btn-sm btn-success"> Mentor </button>
       </div>
       <div class="h5 mt-4">
         <i class="ni business_briefcase-24 mr-2"></i> <%= @user.speciality %>
       </div>
+    <% end %>
     </div>
   </div>
 </div>

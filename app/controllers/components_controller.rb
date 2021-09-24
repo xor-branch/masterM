@@ -61,15 +61,18 @@ class ComponentsController < ApplicationController
       @messages = nil
     end
 
-    if @conversation.messages == nil && @conversation.recipient_id == User.advisor.id && !current_user.advisor? && !current_user.mentor?
-      @conversation.sender_id = current_user.id
-      @conversation.messages.create!(
-                          user_id: User.advisor.id,
-                          content:"Bonjour, vous avez fait une demande pour demandepour devenir mentor, veuillez nous laisser un message comportant votre Nom prenom et specialite",
-                           created_at: Time.now
-                        )
+      unless @conversation == nil
+        if @conversation.messages == nil && @conversation.recipient_id == User.advisor.id && !current_user.advisor? && !current_user.mentor?
+          @conversation.sender_id = current_user.id
+          @conversation.messages.create!(
+                              user_id: User.advisor.id,
+                              content:"Bonjour, vous avez fait une demande pour demandepour devenir mentor, veuillez nous laisser un message comportant votre Nom prenom et specialite",
+                               created_at: Time.now
+                            )
 
-    end
+        end
+      end
+
   end
   def create_conversation
     @conversation = Conversation.find(params[:id])
