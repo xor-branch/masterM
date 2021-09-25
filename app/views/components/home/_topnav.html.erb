@@ -45,7 +45,7 @@
                 </div>
                 <div class="media-body ml-3">
                   <h6 class="heading text-success mb-md-1">Metier du numerique</h6>
-                  <p class="description d-none d-md-inline-block mb-0">Apprendre la programation logiciel ou web avec un mentor..</p>
+                  <p class="description d-none d-md-inline-block mb-0">Apprendre la programation logiciel ou web, gaming, IA, blockchain,  avec un mentor..</p>
                 </div>
               </a>
               <a href="<%=users_path(category: 6)%>" class="media d-flex align-items-center">
@@ -53,11 +53,11 @@
                   <i class="ni ni-ui-04"></i>
                 </div>
                 <div class="media-body ml-3">
-                  <h5 class="heading text-warning mb-md-1">Apprendre une langue</h5>
+                  <h5 class="heading text-warning mb-md-1">Apprendre une nouvelle langue</h5>
                   <p class="description d-none d-md-inline-block mb-0"> Apprendre une langue Anglais, français, Japonnais ... Apprennez une nouvelle langue avec un mentor</p>
                 </div>
               </a>
-              <a href="<%=users_path(category: 4)%>" class="media d-flex align-items-center">
+              <!-- <a href="<%#=users_path(category: 4)%>" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-info rounded-circle text-white">
                   <i class="ni ni-ui-04"></i>
                 </div>
@@ -65,7 +65,7 @@
                   <h5 class="heading text-info mb-md-1">Artisanat</h5>
                   <p class="description d-none d-md-inline-block mb-0">Couture, photographie, Coiffure, design, etc ... Trouver un mentor pour vous aider a apprendre un metier d'avenir</p>
                 </div>
-              </a>
+              </a> -->
               <a href="<%=users_path(category: 5)%>" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
                   <i class="ni ni-ui-04"></i>
@@ -75,7 +75,7 @@
                   <p class="description d-none d-md-inline-block mb-0">Trouvez un mentor pour vous aider a developper des competences humaines ou spirituelles</p>
                 </div>
               </a>
-              <a href="<%= users_path(category: 3)%>" class="media d-flex align-items-center">
+              <!-- <a href="<%#= users_path(category: 3)%>" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-default rounded-circle text-white">
                   <i class="ni ni-ui-04"></i>
                 </div>
@@ -83,7 +83,7 @@
                   <h5 class="heading text-default mb-md-1">Arts</h5>
                   <p class="description d-none d-md-inline-block mb-0">Trouvez ici un mentor pour progresser rapidement sour la houlette d'un artiste plus experimenté.</p>
                 </div>
-              </a>
+              </a> -->
             </div>
           </div>
         </li>
@@ -92,21 +92,11 @@
               <%= link_to "Master Classes", components_classrooms_path, class:"nav-link" %>
             </span>
         </li>
-        <% if user_signed_in? %>
-            <% unless !current_user.mentor? || !current_user.advisor? %>
-            <li class="nav-item dropdown">
-                <span class="nav-link-inner--text">
-                  <%= link_to ' Devenir mentor', conversations_path(recipient_id: User.advisor.id), method: :post, class:"nav-link" %>
-                </span>
-            </li>
-            <% end %>
-          <% else %>
-          <li class="nav-item dropdown">
-              <span class="nav-link-inner--text">
-                <%= link_to ' Devenir mentor', conversations_path(recipient_id: User.advisor.id), method: :post, class:"nav-link" %>
-              </span>
-          </li>
-        <% end %>
+        <li class="nav-item dropdown">
+            <span class="nav-link-inner--text">
+              <%= link_to ' Devenir mentor', components_mentor_path, class:"nav-link" %>
+            </span>
+        </li>
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
         <li class="nav-item">

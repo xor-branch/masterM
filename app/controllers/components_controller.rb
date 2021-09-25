@@ -34,8 +34,6 @@ class ComponentsController < ApplicationController
   def meetings
     start_date = params.fetch(:start_date, Date.today).to_date
     @meetings = Meeting.meetings_of(current_user)
-
-    #@meetings = Meeting.where(start_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def create_meeting
@@ -95,13 +93,8 @@ class ComponentsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  # def user_update
-  #   if @user.update(user_params)
-  #       redirect_to components_dasboard_path
-  #   else
-  #       flash[:danger]="something is wrong !"
-  #   end
-  # end
+  def mentor
+  end
 
   private
   def meeting_params
@@ -112,7 +105,7 @@ class ComponentsController < ApplicationController
     case action_name
     when 'login', 'register'
       'authentication'
-    when 'index','classrooms'
+    when 'index','classrooms','mentor'
       'home'
     else
       'dashboard'

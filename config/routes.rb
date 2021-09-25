@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get 'components/upgrade'
   get 'components/index'
   get 'components/conversations'
-
+  get 'components/mentor'
   # advisor routes
 
   get 'advisors/index', to:'advisors#index', as: :advisors_users

@@ -1,0 +1,145 @@
+<div class="section features-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <span class="badge badge-primary badge-pill mb-3">Hi <%=current_user.name %></span>
+        <h3 class="display-3">COMMENT DEVENIR MENTOR CHEZ MASTER MIND ? </h3>
+        <p class="lead">Notre mission est de mettre les gens en reseau pour partager des competences que chacun veut acquerir
+        pour realiser ses ambissions.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="info">
+          <div class="icon icon-lg icon-shape icon-shape-primary shadow rounded-circle mb-4">
+            <i class="ni ni-send"></i>
+          </div>
+
+          <h4 class="info-title text-uppercase text-primary">Contacter le conseiller de Master Mind</h4>
+          <p class="description opacity-8 mb-4">Vous devez envoyer un message au conseiller de Master Mind pour faire votre demande pour devenir mentor.
+          Nous vous recommandons de motiver votre demande. (Pourquoi voulez vous devenir mentor?)</p>
+          <%= link_to ' Contacter le conseiller', conversations_path(recipient_id: User.advisor.id), method: :post, class:"nav-link ni ni-bold-right text-primary" %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info">
+          <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-4">
+            <i class="ni ni-tv-2"></i>
+          </div>
+          <h4 class="info-title text-uppercase text-success">Entretient avec le conseiller</h4>
+          <p class="description opacity-8">Apres avoir envoyé un message au conseiller, Nous vous repondrons au plutôt.
+              Le conseiller vous demandera votre disponibilité pour prendre un rendez afin d'avior un entretient visuel.
+              Le conseiller vous Posera quelques questions pour remplir votre dossier de candidature-</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info">
+          <div class="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle mb-4">
+            <i class="ni ni-hat-3"></i>
+          </div>
+          <h4 class="info-title text-uppercase text-warning mb-4">Preparer un classe ouvrir sur le site</h4>
+          <p class="description opacity-8 mb-4">Le conseiller vous guidera pour créer une classe. En effet, vous devrez poster sur la plateforme un curcus d'auto formation
+          sur le domaine dans lequel vous souhaitez devenir mentor. Vous pouvez voir dans la liste des classes, un exemple pour vous inspirer. </p>
+          <a href="javascript:;" class="text-primary">
+            <i class="ni ni-bold-right text-primary"></i>
+            Voir des exemples de classes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section features-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <span class="badge badge-warning badge-pill mb-3">NOS MENTORS</span>
+        <h3 class="display-3">ici, vous trouverez les categories de mentors qui sont sur Master mind</h3>
+        <p class="lead">Vous pourvez nous en suggerer d'autres :) </p>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="info info-horizontal info-hover-primary">
+          <div class="description pl-4">
+            <h5 class="title">Digital</h5>
+            <p>Apprendre la programation logiciel ou web, gaming, IA, blockchain,  avec un mentor..</p>
+            <a href="<%=users_path(category: 1)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Business</h5>
+            <p>Lancer votre business (commerce, trading,etc..) ou votre startup avec un mentor</p>
+            <a href="<%=users_path(category: 2)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Language</h5>
+            <p>Apprendre une langue Anglais, français, Japonnais ... Apprennez une nouvelle langue avec un mentor</p>
+            <a href="<%=users_path(category: 6)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Soft skills</h5>
+            <p>Trouvez un mentor pour vous aider a developper des competences humaines, leadership ou spirituelles </p>
+            <a href="<%=users_path(category: 5)%>" class="text-info">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-10 mx-md-auto">
+        <%= image_tag "img/ill/ill.png" , class:"ml-lg-5", width:"100%"%>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row row-grid align-items-center mb-5">
+      <div class="col-lg-6">
+        <h3 class="text-primary font-weight-light mb-2">Arigato !!!</h3>
+        <h4 class="mb-0 font-weight-light">Restons en contact...</h4>
+      </div>
+      <div class="col-lg-6 text-lg-center btn-wrapper">
+        <button target="_blank" href="https://www.linkedin.com/in/baroka-irotori-0b2210170/" rel="nofollow" class="btn btn-icon-only btn-twitter rounded-circle" data-toggle="tooltip" data-original-title="Follow us">
+          <span class="btn-inner--icon"><i class="fa fa-linkedin"></i></span>
+        </button>
+        <button target="_blank" href="https://web.facebook.com/AfricaSamurai/" rel="nofollow" class="btn-icon-only rounded-circle btn btn-facebook" data-toggle="tooltip" data-original-title="Like us">
+          <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
+        </button>
+        <button target="_blank" href="https://github.com/Baroka-wp" rel="nofollow" class="btn btn-icon-only btn-github rounded-circle" data-toggle="tooltip" data-original-title="Star on Github">
+          <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center justify-content-md-between">
+      <div class="col-md-6">
+        <div class="copyright">
+          &copy; 2021 <a href="" target="_blank">Master Mind</a>.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <ul class="nav nav-footer justify-content-end">
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">Master mind</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">License</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
