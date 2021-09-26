@@ -4,6 +4,13 @@
   <body class="">
     <%= render 'components/home/topnav' %>
     <%= yield %>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_53500962577c5a0918a5aa933c7d27c03'
+        });
+    </script>
 
   </body>
+
 </html>

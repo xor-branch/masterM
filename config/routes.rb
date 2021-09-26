@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to:'components#index'
+  root to:'components#home'
   resources :projects
 
 
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get 'components/login'
   get 'components/register'
   get 'components/upgrade'
-  get 'components/index'
+  get 'components/index', as: "components"
   get 'components/conversations'
   get 'components/mentor'
   # advisor routes

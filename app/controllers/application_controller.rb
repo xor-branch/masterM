@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(user)
     new_user_session_path
   end
+  def after_sign_in_path_for(user)
+    components_path
+  end
 
   protected
 
@@ -19,6 +22,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(DEVISE_SIGN_UP_FIELDS)}
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(DEVISE_UPDATE_FIELDS)}
   end
+
 
   private
   def set_time_zone

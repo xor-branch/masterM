@@ -1,10 +1,26 @@
 <!-- digitals mentor  display -->
 <div class="row justify-content-center p-4">
+  <!-- Search form -->
+  <form action="/users?category=<%= params[:category]%>&amp;user?LIKE=?" method="get" class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+    <div class="form-group mb-0">
+      <div class="input-group input-group-alternative input-group-merge">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><%= fa_icon 'search' %></span>
+        </div>
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+    </div>
+    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </form>
+
   <div class="col-xl-6 col-lg-6 col-md-8 px-5">
     <h1 class="text-orange"><%= @category_name %>
       <a href="<%= components_classrooms_path %>" class="hover">
-        <span class="text-white text-sm bg-cyan shadow rounded p-1"> Master Class > </span>
-      </a>
+      </a><br />
+      <span class="text-white text-sm bg-cyan shadow rounded p-1"> Master Class > </span>
+
     </h1>
     <p class="text-lead text-primary"> Profitez du premier reseau de mentoring pour realisez vos rêves !</p>
   </div>

@@ -4,6 +4,9 @@ class ComponentsController < ApplicationController
 
   PER = 4
 
+  def home
+  end
+
   def index
     @digital = User.mentor(1)
     @business = User.mentor(2)
@@ -105,7 +108,7 @@ class ComponentsController < ApplicationController
     case action_name
     when 'login', 'register'
       'authentication'
-    when 'index','classrooms','mentor'
+    when 'index','classrooms','mentor','home'
       'home'
     else
       'dashboard'

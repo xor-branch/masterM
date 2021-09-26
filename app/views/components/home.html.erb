@@ -1,0 +1,84 @@
+<div class="section" style="background-image: url(<%= asset_path 'img/ill/1.svg' %>);">
+  <div class="container py-md">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-8 mx-auto text-center">
+        <span class="badge badge-primary badge-pill mb-3">Master mind <%#= current_user.name %></span>
+        <h3 class="display-3">BIENVENUE ! </h3>
+        <p class="lead">
+          Notre mission est de creer des reseaux de competences à travars le monde. Ici vous pourrez donc partager et acquerire des competences nouvelles.
+        Vous avez des salles discussions pour approfondir vos competences. Vous avec egalement á votre dispositions des mentors pour vous accompagner dans la construction d'une nouvelles competences.
+      Profitez-en ! </p>
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-8 mx-auto text-center">
+        <div class="btn-wrapper mt-5">
+          <% if !user_signed_in? %>
+          <a href="<%= new_user_registration_path %>" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0">
+            <span class="btn-inner--icon"><i class="ni ni-single-02"></i></span>
+            <span class="btn-inner--text">Creer <span class="text-warning">un compte</span></span>
+          </a>
+            <button type="button" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0" data-toggle="modal" data-target="#modal-form"><span class="btn-inner--icon">
+              <i class="ni ni-user-run"></i></span>
+              <span class="btn-inner--text">Se connecter</span>
+            </button>
+            <%= render "components/home/login"%>
+            <% end %>
+            <div class="mt-5 text-orange">
+              <small class="mb-0 mr-2 text-primary">*proudly coded by</small> AFRICA SAMURAI
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section features-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <span class="badge badge-warning badge-pill mb-3">NOS MENTORS</span>
+        <h3 class="display-3">ici, vous trouverez les categories de mentors qui sont sur Master mind</h3>
+        <p class="lead">Vous pourvez nous en suggerer d'autres :) </p>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="info info-horizontal info-hover-primary">
+          <div class="description pl-4">
+            <h5 class="title">Digital</h5>
+            <p>Apprendre la programation logiciel ou web, gaming, IA, blockchain,  avec un mentor..</p>
+            <a href="<%=users_path(category: 1)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Business</h5>
+            <p>Lancer votre business (commerce, trading,etc..) ou votre startup avec un mentor</p>
+            <a href="<%=users_path(category: 2)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Language</h5>
+            <p>Apprendre une langue Anglais, français, Japonnais ... Apprennez une nouvelle langue avec un mentor</p>
+            <a href="<%=users_path(category: 6)%>" class="text-info">Apprendre</a>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">Soft skills</h5>
+            <p>Trouvez un mentor pour vous aider a developper des competences humaines, leadership ou spirituelles </p>
+            <a href="<%=users_path(category: 5)%>" class="text-info">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-10 mx-md-auto">
+        <%= image_tag "img/ill/ill.png" , class:"ml-lg-5", width:"100%"%>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "components/home/footer" %>

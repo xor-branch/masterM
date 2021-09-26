@@ -5,7 +5,13 @@
     <%= render 'components/sidenav' %>
     <div class="main-content" id="panel">
       <%= render partial: 'components/topnav', locals: { bg_color_class: yield(:topnav_bg) } %>
-      <%= yield %>      
+      <%= yield %>
     </div>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_53500962577c5a0918a5aa933c7d27c03'
+        });
+    </script>
   </body>
 </html>
