@@ -3,9 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import 'bootstrap'
-import 'trix/dist/trix.css';
-
-import "trix"
 import "@rails/actiontext"
 
 require("jquery/dist/jquery.js")
@@ -25,3 +22,6 @@ require("demo-app.js")
 
 require("trix")
 require("@rails/actiontext")
+
+
+require("@rails/activestorage").start()
