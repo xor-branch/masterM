@@ -13,9 +13,6 @@ module ArgonV1
     config.i18n.default_locale = :en
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.beginning_of_week = :monday
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
   end
 end

@@ -24,9 +24,17 @@
     </div>
     <% end %>
     <div class="form-group">
-
-        <%= f.rich_text_area :content,  placeholder:"bug content" %>
-
+      <div class="img-fluid responsive">
+        <%= image_tag @bug.image if @bug.image.attached? %>
+      </div>
+        <br>
+        <%= f.text_area :content, class: "form-control", placeholder:"bug content" %>
+        <div class="input-group input-group-merge input-group-alternative mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-image"></i></span>
+          </div>
+          <%= f.file_field :image, class: "form-control", placeholder: "Your avatar" %>
+        </div>
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-default my-4">Push</button>

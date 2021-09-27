@@ -61,4 +61,6 @@ Rails.application.routes.draw do
 
   #bugs routes
   resources :bugs
+  mount Ckeditor::Engine => '/ckeditor'
+  
 end

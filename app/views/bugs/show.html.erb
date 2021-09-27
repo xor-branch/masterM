@@ -64,6 +64,9 @@
         <div class="row">
           <div class="col">
             <p><%= @bug.content %></p>
+            <div class="">
+              <%= image_tag @bug.image if @bug.image.attached? %>
+            </div>
           </div>
         </div>
       </div>

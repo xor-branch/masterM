@@ -6,8 +6,8 @@
       <div class="card-header text-center border-0 pt-2 pt-md-4 pb-0 pb-md-4">
         <h4><%= classroom.title %> - <span class="bg-salmon"><%=classroom.category %></span></h4>
         <div class="d-flex justify-content-between">
-          <a href="<%=classroom_path(classroom) %>" class="btn btn-sm btn-primary mr-4 ">Courses</a>
-          <a href="#" class="btn btn-sm btn-warning float-right">Subcribe</a>
+          <a href="<%=classroom_path(classroom) %>" class="btn btn-sm btn-primary mr-4 ">Voir</a>
+          <a href="#" class="btn btn-sm btn-warning float-right">Register</a>
         </div>
       </div>
       <div class="card-body pt-0">
@@ -16,12 +16,12 @@
             <div class="card-profile-stats d-flex justify-content-center">
               <div>
                 <span class="heading"><%=classroom.courses.count %></span>
-                <span class="description">Courses</span>
+                <span class="description">Cours</span>
 
               </div>
               <div>
                 <span class="heading">10</span>
-                <span class="description">Studants</span>
+                <span class="description">Etudiants</span>
               </div>
             </div>
           </div>

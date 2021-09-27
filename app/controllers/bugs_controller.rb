@@ -7,7 +7,7 @@ class BugsController < ApplicationController
 
   def index
     @bug = Bug.new
-    if current_user.mentor?
+    if current_user.advisor?
       @bugs = Bug.all
     else
       @bugs = current_user.bugs
@@ -56,7 +56,7 @@ class BugsController < ApplicationController
   end
 
   def bug_params
-    params.require(:bug).permit(:title, :content, :statut)
+    params.require(:bug).permit(:title, :content, :statut, :image)
   end
 
   def check_user
